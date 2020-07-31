@@ -1,0 +1,26 @@
+密钥生成:
+ssh-keygen -t rsa -C "18385616487@163.com"   生成在c盘用户目录.shh文件下，
+打开github官网添加密钥，同步主机和github仓库
+
+检查主机是否成功绑定
+ssh -T git@github.com
+
+name最好和GitHub上边的一样，email是一定要是注册GitHub的那个邮箱地址
+ git config --global user.name "1769628995"
+git config --global user.email "18385616487@163.com"
+
+定位非C盘下 执行拉去代码 git clone后边的网址就是你创建库成功之后的网址
+git clone https://github.com/1769628995/SpringCloudConfig.git
+
+进入本地仓库目录
+ cd SpringCloudConfig/
+
+提交指定文件  或者分支文件夹
+git add springboot.txt
+
+ 引号内的内容可以随意改动，这个语句的意思是 给你刚刚上传的文件一个备注，方便查找记忆而已
+git commit -m "sp"
+
+登陆上传
+git push origin master
+
