@@ -1,0 +1,26 @@
+RabbiMQ消息队列     安装https://blog.csdn.net/ring300/article/details/82802017
+消息总线是消息队列的封装，消息队列面向技术，消息总线面向技术+业务
+消息队列无法隐藏通信细节
+消息队列无法实施实时管控
+总线的优势：统一入口，简化拦截成本
+
+RabbitMQ 介绍
+RabbitMQ 是实现 AMQP（高级消息队列协议）的消息中间件的一种，最初起源于金融系统，用于在分布式系统中存储转发消息，
+在易用性、扩展性、高可用性等方面表现不俗。 RabbitMQ 主要是为了实现系统之间的双向解耦而实现的。当生产者大量产生数据时，
+消费者无法快速消费，那么需要一个中间层。保存这个数据。
+
+AMQP，即 Advanced Message Queuing Protocol，高级消息队列协议，是应用层协议的一个开放标准，为面向消息的中间件设计。
+消息中间件主要用于组件之间的解耦，消息的发送者无需知道消息使用者的存在，反之亦然。AMQP 的主要特征是面向消息、队列、路由
+（包括点对点和发布/订阅）、可靠性、安全。
+
+RabbitMQ 是一个开源的 AMQP 实现，服务器端用Erlang语言编写，支持多种客户端，如：Python、Ruby、.NET、Java、JMS、C、PHP、ActionScript、
+XMPP、STOMP 等，支持 AJAX。用于在分布式系统中存储转发消息，在易用性、扩展性、高可用性等方面表现不俗。
+
+队列服务通常分为三个模块： 发消息者、队列、收消息者，RabbitMQ 在这个基本概念之上, 多做了一层抽象, 在发消息者和 队列之间, 
+加入了交换器 (Exchange). 这样发消息者和队列就没有直接联系, 转而变成发消息者把消息给交换器, 交换器根据调度策略再把消息再给队列。
+
+@RabbitListener注解指定目标方法来作为消费消息的方法，通过注解参数指定所监听的队列或者Binding。使用@RabbitListener可以设置一个自己明确默认值
+的RabbitListenerContainerFactory对象。
+可以在配置文件中设置RabbitListenerAnnotationBeanPostProcessor并通过<rabbit:annotation-driven/>来设置@RabbitListener的执行，
+当然也可以通过@EnableRabbit注解来启用@RabbitListener。
+
